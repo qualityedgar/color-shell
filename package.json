@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gormuth/color-shell.git"
+    "url": "https://github.com/qualityedgar/color-shell.git"
   },
-  "author": "gormuth",
+  "author": "Sundeep Narang <sundeepnrng@gmail.com> (https//sundeepnarang.com)",
   "license": "MIT",
   "devDependencies": {
     "chai": "4.1.2",
