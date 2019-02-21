@@ -1,6 +1,6 @@
 {
-  "name": "color-shell",
-  "version": "1.0.0",
+  "name": "@qualityedgar/color-shell",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/app.js",
   "scripts": {
@@ -14,8 +14,8 @@
   "author": "gormuth",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^5.0.0",
-    "typescript": "^2.6.2"
+    "chai": "4.1.2",
+    "mocha": "5.0.0",
+    "typescript": "2.6.2"
   }
 }

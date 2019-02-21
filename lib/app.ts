@@ -32,7 +32,7 @@ export class Logger {
     }
 
     public warn(message: any): void {
-        console.log(this.formatOutput(this.color.fgYellow), "[INFO]    ", message, "\x1b[0m");
+        console.log(this.formatOutput(this.color.fgYellow), "[WARN]    ", message, "\x1b[0m");
     }
 
     public success(message: any): void {
