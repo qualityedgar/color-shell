@@ -5,6 +5,7 @@ interface Color {
 export class Logger {
 
     public debugMode: boolean = false;
+    public prefix: string;
 
     private color: Color = {
         fgBlack   : "\x1b[30m",
@@ -17,39 +18,43 @@ export class Logger {
         fgWhite   : "\x1b[37m",
     };
 
-    public getDate(): string {
+    constructor(prefix: string) {
+        this.prefix = prefix;
+    }
+
+    private static formatOutput(color: string): string {
+        return Logger.getDate() + color;
+    }
+
+    public static getDate(): string {
         const date = new Date();
         const options = { year: "numeric", month: "numeric", day: "numeric", hour: "numeric", minute: "numeric", second: "numeric" };
         return "\x1b[0m[ " + date.toLocaleString("FR-ca", options) + " ]   - ";
     }
 
     public log(message: any): void {
-        console.log(this.formatOutput(this.color.fgWhite), "[LOG]     ", message, "\x1b[0m");
+        console.log(Logger.formatOutput(this.color.fgWhite), "[LOG]     ",this.prefix, message, "\x1b[0m");
     }
 
     public info(message: any): void {
-        console.log(this.formatOutput(this.color.fgMagenta), "[INFO]    ", message, "\x1b[0m");
+        console.log(Logger.formatOutput(this.color.fgMagenta), "[INFO]    ",this.prefix, message, "\x1b[0m");
     }
 
     public warn(message: any): void {
-        console.log(this.formatOutput(this.color.fgYellow), "[WARN]    ", message, "\x1b[0m");
+        console.log(Logger.formatOutput(this.color.fgYellow), "[WARN]    ",this.prefix, message, "\x1b[0m");
     }
 
     public success(message: any): void {
-        console.log(this.formatOutput(this.color.fgGreen), "[SUCCESS] ", message, "\x1b[0m");
+        console.log(Logger.formatOutput(this.color.fgGreen), "[SUCCESS] ",this.prefix, message, "\x1b[0m");
     }
 
     public error(message: any): void {
-        console.log(this.formatOutput(this.color.fgRed), "[ERROR]   ", message, "\x1b[0m");
+        console.log(Logger.formatOutput(this.color.fgRed), "[ERROR]   ",this.prefix, message, "\x1b[0m");
     }
 
     public debug(message: any): void {
         if (this.debugMode) {
-            console.log(this.formatOutput(this.color.fgCyan), "[DEBUG]   ", message, "\x1b[0m");
+            console.log(Logger.formatOutput(this.color.fgCyan), "[DEBUG]   ",this.prefix, message, "\x1b[0m");
         }
-    }
-
-    private formatOutput(color: string): string {
-        return this.getDate() + color;
     }
 }

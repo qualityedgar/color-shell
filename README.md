@@ -10,7 +10,7 @@ yarn add color-shell
 ```javascript
 let colorShell = require('color-shell');
 // Logger instance
-let logger = new colorShell.Logger();
+let logger = new colorShell.Logger({prefix:"Any String - "});
 //used in debug environment
 logger.debugMode = true;
 
@@ -24,7 +24,7 @@ logger.debug("It's a debug log");
 ### TypeScript
 ```typescript
 import { Logger } from 'color-shell';
-let logger = new Logger();
+let logger = new Logger({prefix:"Any String - "});
 //used in debug environment
 logger.debugMode = true;
 
